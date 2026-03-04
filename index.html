@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-Hour Furniture Clearance & Storage | NYC Property Management</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --text-muted: #4b5563;
+            --accent: #0f766e;
+            --accent-hover: #115e59;
+            --gray-bg: #f3f4f6;
+            --gray-border: #e5e7eb;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            color: var(--text-color);
+            background: var(--bg-color);
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .bg-gray {
+            background-color: var(--gray-bg);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--gray-bg);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-border);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--gray-border);
+        }
+
+        .btn-outline:hover {
+            background: var(--gray-bg);
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            border-bottom: 1px solid var(--gray-border);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Grid & Cards */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            padding: 1.5rem;
+            border: 1px solid var(--gray-border);
+            border-radius: 8px;
+            background: white;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Custom Layouts */
+        .evidence-callout {
+            background: var(--accent);
+            color: white;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .evidence-callout p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+
+        .evidence-callout strong {
+            color: white;
+        }
+
+        .cost-panel {
+            background: #fff;
+            border: 1px solid #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+
+        .cost-panel h4 {
+            color: #b91c1c;
+            margin-bottom: 0.25rem;
+        }
+
+        .cost-panel p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .step-list {
+            counter-reset: steps;
+            margin-top: 2rem;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-item::before {
+            counter-increment: steps;
+            content: counter(steps);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--gray-bg);
+            border: 1px solid var(--gray-border);
+            color: var(--text-color);
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--gray-border);
+            padding: 1rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-bottom: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Form UI */
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-border);
+            border-radius: 6px;
+            font-family: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sticky Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">RentReady NYC</div>
+            <nav class="nav-links">
+                <a href="#problem">Problem</a>
+                <a href="#solution">Solution</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="#trust">Trust & Compliance</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section hero">
+        <div class="container">
+            <div class="badge">Designed for: NYC walk-ups, small to mid-size portfolios</div>
+            <h1>Clear the unit in 24 hours.<br>Start turnover immediately.</h1>
+            <p class="long-text" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto; margin-bottom: 2rem;">Stop
+                losing rental income waiting on property removal. We provide secure, compliant furniture clearance and
+                temporary off-site storage to minimize vacancy days.</p>
+
+            <div class="hero-buttons">
+                <a href="#how-it-works" class="btn">See how it works</a>
+                <a href="#contact" class="btn btn-outline">Provide feedback</a>
+            </div>
+
+            <div class="evidence-callout-wrapper" style="margin-top: 1rem;">
+                <div class="evidence-callout">
+                    <p><strong>Interview Pattern:</strong> "Speed matters more than resale. Trying to sell a $200 couch
+                        isn't worth holding up $1,000+ in potential rent."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section bg-gray">
+        <div class="container">
+            <div class="grid" style="align-items: center; grid-template-columns: 1fr 1fr;">
+                <div>
+                    <h2>The Turnover Chain Reaction</h2>
+                    <p>Abandoned furniture paralyzes the turnover process. Until the unit is empty, cleaners can't
+                        scrub, painters can't prep, and brokers can't show the space.</p>
+                    <p class="long-text">In walk-up buildings, removing items safely requires labor and coordination
+                        that stretches your team thin. Storing items inside the unit exposes you to further delays and
+                        legal risk if possession timelines aren't strictly managed.</p>
+                </div>
+                <div>
+                    <div class="cost-panel">
+                        <h4>Example Cost of Delay</h4>
+                        <p>A 5-day delay waiting to clear an apartment renting for $3,600/month means <strong>$600 in
+                                lost rental income</strong>. This easily outweighs the resale value of leftover items.
+                        </p>
+                    </div>
+                    <p><strong>Your goals:</strong> reduced vacancy days, reduced legal exposure, reduced vendor
+                        uncertainty, and reduced staff strain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section">
+        <div class="container text-center">
+            <h2>A 24-Hour Clearance Mechanism</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem;">We decouple the physical removal of items from the legal
+                holding requirements using off-site temporary storage. Your unit is ready today; compliance is handled
+                in the background.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3>Speed (24h)</h3>
+                    <p>Same-day or next-day clearance ensures the unit is physically empty and ready for vendor teams
+                        almost immediately.</p>
+                </div>
+                <div class="card">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                        </path>
+                    </svg>
+                    <h3>Compliance</h3>
+                    <p>We transport items to off-site storage to support local 30-day abandoned property hold rules,
+                        keeping you legally compliant.</p>
+                </div>
+                <div class="card">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04M12 21.022A11.95 11.95 0 0021 12h-2m-4.5-9.3A11.95 11.95 0 0012 2.944v18.078">
+                        </path>
+                    </svg>
+                    <h3>Protection</h3>
+                    <p>Professional handling with padded walls, doors, and floors to ensure walk-up common areas are
+                        never damaged.</p>
+                </div>
+            </div>
+
+            <div class="evidence-callout-wrapper" style="margin-top: 1rem;">
+                <div class="evidence-callout">
+                    <p><strong>Interview Pattern:</strong> "The legal risk of disposing too early outweighs any
+                        potential resale profit. But holding it in the unit means we can't rent it out."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="section bg-gray">
+        <div class="container">
+            <h2>How it Works</h2>
+            <div class="grid" style="grid-template-columns: 2fr 1fr;">
+                <div class="step-list">
+                    <div class="step-item">
+                        <h3>Request & Schedule</h3>
+                        <p>Book a same-day or next-day time slot directly through our dispatcher.</p>
+                    </div>
+                    <div class="step-item">
+                        <h3>On-Site Removal & Protection</h3>
+                        <p>Our team arrives, pads the unit doorframes, and uses protective runners for the hallways to
+                            execute a zero-impact move.</p>
+                    </div>
+                    <div class="step-item">
+                        <h3>Transport to Off-Site Storage</h3>
+                        <p>We utilize dedicated trucking and warehouse space. Yes, this adds operational complexity for
+                            us, but eliminates the bottleneck for you.</p>
+                    </div>
+                    <div class="step-item">
+                        <h3>Documentation Pack Delivery</h3>
+                        <p>Receive a timestamped condition report and photo log for your files to demonstrate chain of
+                            custody and condition upon exit.</p>
+                    </div>
+                    <div class="step-item">
+                        <h3>Rent-Ready & Release Workflow</h3>
+                        <p>Your unit hits the market immediately. Items remain in storage for the mandated period,
+                            followed by safe disposal or donation.</p>
+                    </div>
+                </div>
+                <div class="card" style="align-self: start;">
+                    <h3>What you get:</h3>
+                    <ul style="margin-top: 1rem;">
+                        <li style="margin-bottom: 0.5rem; display: flex;"><span
+                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Instant unit access</li>
+                        <li style="margin-bottom: 0.5rem; display: flex;"><span
+                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Photo inventory log</li>
+                        <li style="margin-bottom: 0.5rem; display: flex;"><span
+                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Condition report</li>
+                        <li style="margin-bottom: 0.5rem; display: flex;"><span
+                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Damage guarantee</li>
+                        <li style="margin-bottom: 0.5rem; display: flex;"><span
+                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> 30-day offsite hold</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Compliance -->
+    <section id="trust" class="section">
+        <div class="container text-center">
+            <h2>Trust, Documentation, & Compliance</h2>
+            <p class="long-text" style="max-width: 700px; margin: 0 auto 2rem;">Moving tenant property comes with
+                liability. We mitigate this through a rigorous <strong>chain of custody</strong>. By documenting exactly
+                what was left, in what condition, and where it was taken, we help you support legal holding requirements
+                and reduce exposure to claims.</p>
+
+            <div class="grid">
+                <div class="card text-center">
+                    <h3>Damage Protection Guarantee</h3>
+                    <p>We use padding and hallway runners on every job. We cover any cosmetic scrapes or damages to the
+                        common areas directly resulting from our clear-out.</p>
+                    <p class="long-text" style="font-size: 0.85rem; margin-top: 1rem;"><em>*Does not cover pre-existing
+                            unit damage caused by the tenant during their tenancy.</em></p>
+                </div>
+                <div class="card text-center">
+                    <h3>Defensible Records</h3>
+                    <p>Our condition reporting includes wide-angle and item-level photography, timestamped and sent
+                        securely to your inbox the moment the truck is loaded.</p>
+                </div>
+            </div>
+
+            <div class="evidence-callout-wrapper" style="margin-top: 1rem;">
+                <div class="evidence-callout">
+                    <p><strong>Interview Pattern:</strong> "Standard junk removal companies are a liability. They bash
+                        the walls bringing out couches, and leave zero paper trail."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section bg-gray">
+        <div class="container">
+            <h2 class="text-center">Illustrative Pricing</h2>
+            <p class="text-center" style="margin-bottom: 3rem;">*Note: Final pricing depends on stairs (walk-up floors),
+                volume of items, and required scheduling urgency.</p>
+
+            <div class="grid">
+                <div class="card text-center">
+                    <h3 style="color: var(--accent);">Tier 1</h3>
+                    <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Single Item / Small Load
+                    </div>
+                    <p>Ideal for a left-behind mattress, sofa, or a few boxes.</p>
+                    <hr style="border:0; border-top: 1px solid var(--gray-border); margin: 1rem 0;">
+                    <p class="long-text" style="font-size: 0.9rem;">Includes 24h removal, off-site transit,
+                        documentation pack, and standard storage period.</p>
+                </div>
+
+                <div class="card text-center" style="border-width: 2px; border-color: var(--accent);">
+                    <div class="badge"
+                        style="background: var(--accent); color: white; border: none; margin-top: -2.5rem; position: relative; z-index: 10;">
+                        Most Frequent</div>
+                    <h3 style="color: var(--accent);">Tier 2</h3>
+                    <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Full Unit Clearance</div>
+                    <p>Complete clean-out of heavily furnished abandoned units.</p>
+                    <hr style="border:0; border-top: 1px solid var(--gray-border); margin: 1rem 0;">
+                    <p class="long-text" style="font-size: 0.9rem;">Includes specialized walk-up crew, protection gear,
+                        full inventory log, and managed warehousing.</p>
+                </div>
+
+                <div class="card text-center">
+                    <h3 style="color: var(--accent);">Tier 3</h3>
+                    <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Portfolio Plan</div>
+                    <p>Retainer or volume commitment for mid-size operators.</p>
+                    <hr style="border:0; border-top: 1px solid var(--gray-border); margin: 1rem 0;">
+                    <p class="long-text" style="font-size: 0.9rem;">Includes priority dispatch routing, unified monthly
+                        billing, and API/dashboard documentation access.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question">What if the tenant comes back for items? <span
+                        style="color:var(--accent);">+</span></div>
+                <p class="faq-answer">Items are held safely in our facility. You simply authorize a release, and the
+                    tenant can retrieve their belongings directly from our storage location, keeping them off your
+                    property.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do you document condition? <span style="color:var(--accent);">+</span>
+                </div>
+                <p class="faq-answer">Our crew takes before/after photos and timestamped images of all removed assets.
+                    We log any obvious pre-existing damage to furniture to protect you against false claims.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How fast can you arrive? <span style="color:var(--accent);">+</span></div>
+                <p class="faq-answer">We aim for same-day dispatch if contacted before 12 PM, or guaranteed next working
+                    day.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you handle walk-ups with narrow stairs? <span
+                        style="color:var(--accent);">+</span></div>
+                <p class="faq-answer">Yes. NYC walk-ups are our specialty. Our teams are trained in tight-clearance
+                    removal and always pad door frames.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What about bedbugs or biohazards? <span style="color:var(--accent);">+</span>
+                </div>
+                <p class="faq-answer">For the safety of our team and equipment, heavily infested items or severe
+                    biological hazards require an initial assessment and may necessitate specialized hazard remediation
+                    before transport.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How long do you store items? <span style="color:var(--accent);">+</span></div>
+                <p class="faq-answer">We strictly adhere to local compliance limits (most often 30 days of holding).
+                    After that window expires and we have your sign-off, we process the items.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What if something gets damaged? <span style="color:var(--accent);">+</span>
+                </div>
+                <p class="faq-answer">We carry comprehensive coverage for property damage. If we scrape a hallway wall
+                    moving a dresser, we repair it.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you donate or resell items? <span style="color:var(--accent);">+</span>
+                </div>
+                <p class="faq-answer">Speed and compliance come first. However, once the holding period expires, we
+                    actively divert viable furniture to local charities to remain environmentally conscious when it does
+                    not delay your turnover.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section bg-gray">
+        <div class="container"
+            style="max-width: 600px; background: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--gray-border);">
+            <h2 class="text-center">Help Us Shape This Service</h2>
+            <p class="text-center mb-4">We're actively validating this model with NYC property managers. Share your
+                context to help us refine the service.</p>
+
+            <div class="form-group">
+                <label class="form-label">Name / Company</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="e.g. John Doe - XYZ Management">
+            </div>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <label class="form-label">Building Type</label>
+                    <input type="text" id="contact-bldg" class="form-input" placeholder="e.g. Walk-ups, Elevators">
+                </div>
+                <div>
+                    <label class="form-label">Portfolio Size (# Units)</label>
+                    <input type="text" id="contact-units" class="form-input" placeholder="e.g. 50-100">
+                </div>
+            </div>
+            <div class="form-group mb-4">
+                <label class="form-label">Typical turnaround expectation (Days)</label>
+                <input type="text" id="contact-turnaround" class="form-input" placeholder="e.g. 3-5 days">
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-direction: column;">
+                <button class="btn" onclick="copyContact()">Copy message to clipboard</button>
+                <div class="text-center">
+                    <a href="mailto:test@example.com?subject=RentReady Feedback" class="btn-outline"
+                        style="padding: 0.5rem 1rem; display: inline-block; border-radius: 6px; font-size: 0.85rem;">Or
+                        open email client (mailto)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const span = item.querySelector('span');
+                span.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // Contact Form Copy
+        function copyContact() {
+            const name = document.getElementById('contact-name').value || '[Name]';
+            const bldg = document.getElementById('contact-bldg').value || '[Type]';
+            const units = document.getElementById('contact-units').value || '[Units]';
+            const turnaround = document.getElementById('contact-turnaround').value || '[Time]';
+
+            const text = `Feedback for RentReady:\nName/Company: ${name}\nBuilding Type: ${bldg}\nPortfolio Size: ${units} units\nTypical Turnaround: ${turnaround}`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Copied to clipboard!");
+            });
+        }
+    </script>
+</body>
+
+</html>
