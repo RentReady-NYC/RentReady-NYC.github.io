@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24-Hour Furniture Clearance & Storage | NYC Property Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --text-muted: #4b5563;
-            --accent: #0f766e;
-            --accent-hover: #115e59;
-            --gray-bg: #f3f4f6;
-            --gray-border: #e5e7eb;
-            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --gray-bg: #f8fafc;
+            --gray-border: #e2e8f0;
+            --font-stack: 'Inter', -apple-system, sans-serif;
         }
 
         * {
@@ -52,6 +53,10 @@
 
         .bg-gray {
             background-color: var(--gray-bg);
+        }
+
+        .text-center {
+            text-align: center;
         }
 
         .badge {
@@ -94,16 +99,19 @@
             background: var(--accent);
             color: white;
             padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 500;
+            border-radius: 8px;
+            font-weight: 600;
             border: none;
             cursor: pointer;
             text-align: center;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
         }
 
         .btn:hover {
             background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
         }
 
         .btn-outline {
@@ -183,10 +191,16 @@
         }
 
         .card {
-            padding: 1.5rem;
+            padding: 2rem;
             border: 1px solid var(--gray-border);
-            border-radius: 8px;
+            border-radius: 12px;
             background: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
         }
 
         .icon {
@@ -496,40 +510,36 @@
     <!-- Pricing -->
     <section id="pricing" class="section bg-gray">
         <div class="container">
-            <h2 class="text-center">Illustrative Pricing</h2>
-            <p class="text-center" style="margin-bottom: 3rem;">*Note: Final pricing depends on stairs (walk-up floors),
-                volume of items, and required scheduling urgency.</p>
+            <h2 class="text-center" style="margin-bottom: 1rem;">Clear Pricing. No Retainers.</h2>
+            <p class="text-center" style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">We charge a flat rate based on the amount of clutter left in the unit. Final pricing may depend on stairs (walk-up floors).</p>
 
-            <div class="grid">
-                <div class="card text-center">
-                    <h3 style="color: var(--accent);">Tier 1</h3>
-                    <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Single Item / Small Load
-                    </div>
-                    <p>Ideal for a left-behind mattress, sofa, or a few boxes.</p>
-                    <hr style="border:0; border-top: 1px solid var(--gray-border); margin: 1rem 0;">
-                    <p class="long-text" style="font-size: 0.9rem;">Includes 24h removal, off-site transit,
-                        documentation pack, and standard storage period.</p>
+            <div class="grid" style="gap: 2rem; align-items: stretch;">
+                <!-- Tier 1 -->
+                <div class="card" style="display: flex; flex-direction: column; text-align: center; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                    <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em;">Low Clutter</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$175</div>
+                    <p style="font-weight: 600; margin-bottom: 1.5rem; color: var(--accent);">4.5 Days of recovered rent</p>
+                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">1–3 "Hero" items<br><span style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">(e.g., Mattress, Sofa, or Desk)</span></p>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%;">Book Removal</a>
                 </div>
 
-                <div class="card text-center" style="border-width: 2px; border-color: var(--accent);">
-                    <div class="badge"
-                        style="background: var(--accent); color: white; border: none; margin-top: -2.5rem; position: relative; z-index: 10;">
-                        Most Frequent</div>
-                    <h3 style="color: var(--accent);">Tier 2</h3>
-                    <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Full Unit Clearance</div>
-                    <p>Complete clean-out of heavily furnished abandoned units.</p>
-                    <hr style="border:0; border-top: 1px solid var(--gray-border); margin: 1rem 0;">
-                    <p class="long-text" style="font-size: 0.9rem;">Includes specialized walk-up crew, protection gear,
-                        full inventory log, and managed warehousing.</p>
+                <!-- Tier 2 -->
+                <div class="card" style="display: flex; flex-direction: column; text-align: center; position: relative; border: 2px solid var(--accent); box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); transform: translateY(-0.5rem);">
+                    <div class="badge" style="background: var(--accent); color: white; border: none; margin: 0 auto; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 10;">Most Frequent</div>
+                    <h3 style="color: var(--accent); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em; margin-top: 1rem;">Medium Clutter</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$325</div>
+                    <p style="font-weight: 600; margin-bottom: 1.5rem; color: var(--accent);">8 Days of recovered rent</p>
+                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Partial Apartment<br><span style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">(Furniture + ~10 bags/boxes)</span></p>
+                    <a href="#contact" class="btn" style="width: 100%;">Book Removal</a>
                 </div>
 
-                <div class="card text-center">
-                    <h3 style="color: var(--accent);">Tier 3</h3>
-                    <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Portfolio Plan</div>
-                    <p>Retainer or volume commitment for mid-size operators.</p>
-                    <hr style="border:0; border-top: 1px solid var(--gray-border); margin: 1rem 0;">
-                    <p class="long-text" style="font-size: 0.9rem;">Includes priority dispatch routing, unified monthly
-                        billing, and API/dashboard documentation access.</p>
+                <!-- Tier 3 -->
+                <div class="card" style="display: flex; flex-direction: column; text-align: center; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                    <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em;">High Clutter</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$550</div>
+                    <p style="font-weight: 600; margin-bottom: 1.5rem; color: var(--accent);">14 Days of recovered rent</p>
+                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Full Unit Clear-out<br><span style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">(Heavily furnished / "Hoarder" light)</span></p>
+                    <a href="#contact" class="btn btn-outline" style="width: 100%;">Book Removal</a>
                 </div>
             </div>
         </div>
@@ -565,6 +575,13 @@
                     removal and always pad door frames.</p>
             </div>
             <div class="faq-item">
+                <div class="faq-question">What about bedbugs or biohazards? <span style="color:var(--accent);">+</span>
+                </div>
+                <p class="faq-answer">For the safety of our team and equipment, heavily infested items or severe
+                    biological hazards require an initial assessment and may necessitate specialized hazard remediation
+                    before transport.</p>
+            </div>
+            <div class="faq-item">
                 <div class="faq-question">How long do you store items? <span style="color:var(--accent);">+</span></div>
                 <p class="faq-answer">We strictly adhere to local compliance limits (most often 30 days of holding).
                     After that window expires and we have your sign-off, we process the items.</p>
@@ -574,6 +591,13 @@
                 </div>
                 <p class="faq-answer">We carry comprehensive coverage for property damage. If we scrape a hallway wall
                     moving a dresser, we repair it.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Do you donate or resell items? <span style="color:var(--accent);">+</span>
+                </div>
+                <p class="faq-answer">Speed and compliance come first. However, once the holding period expires, we
+                    actively divert viable furniture to local charities to remain environmentally conscious when it does
+                    not delay your turnover.</p>
             </div>
         </div>
     </section>
@@ -646,4 +670,3 @@
 </body>
 
 </html>
-
