@@ -650,7 +650,7 @@
     <!-- Hero Section -->
     <section class="section hero">
         <div class="container">
-            <div class="badge"> Licensed &amp; Insured &nbsp; &nbsp; NYC Furniture Clearance Specialist</div>
+            <div class="badge">&#10003; Licensed &amp; Insured &nbsp;&middot;&nbsp; NYC Furniture Clearance Specialist</div>
             <h1>Clear the unit in 24 hours.<br>Start turnover immediately.</h1>
             <p class="long-text" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto; margin-bottom: 2rem;">Stop
                 losing rental income waiting on property removal. We provide secure, compliant furniture clearance and
@@ -1092,7 +1092,7 @@
                 <div class="form-group">
                     <label class="form-label" for="contact-name">Your Name / Company</label>
                     <input type="text" id="contact-name" class="form-input"
-                        placeholder="e.g. John Doe â€“ XYZ Management">
+                        placeholder="e.g. John Doe &ndash; XYZ Management">
                 </div>
 
                 <div class="form-group">
@@ -1115,11 +1115,11 @@
                     <label class="form-label" for="contact-clutter">Clutter Level</label>
                     <select id="contact-clutter" class="form-input">
                         <option value="" disabled selected>Select estimated clutter level</option>
-                        <option value="Low â€“ 1â€“3 hero items ($575)">Low â€“ 1â€“3 hero items ($575)</option>
-                        <option value="Medium â€“ Partial apartment ($875)">Medium â€“ Partial apartment ($875)</option>
-                        <option value="High â€“ Full unit clear-out ($1,250)">High â€“ Full unit clear-out ($1,250)
+                        <option value="Low &ndash; 1&ndash;3 hero items ($575)">Low &ndash; 1&ndash;3 hero items ($575)</option>
+                        <option value="Medium &ndash; Partial apartment ($875)">Medium &ndash; Partial apartment ($875)</option>
+                        <option value="High &ndash; Full unit clear-out ($1,250)">High &ndash; Full unit clear-out ($1,250)
                         </option>
-                        <option value="Not sure â€“ need assessment">Not sure â€“ need assessment</option>
+                        <option value="Not sure &ndash; need assessment">Not sure &ndash; need assessment</option>
                     </select>
                 </div>
 
@@ -1130,7 +1130,7 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
-                    <button class="btn" id="send-quote-btn" onclick="sendQuote()">Send Quote Request</button>
+                    <button class="btn" id="send-quote-btn" onclick="sendQuote()">&#128236; Send Quote Request</button>
                     <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin: 0;">Or email us
                         directly at <a href="mailto:kp3805@nyu.edu" style="color: var(--accent);">kp3805@nyu.edu</a></p>
                 </div>
@@ -1178,7 +1178,7 @@
             const clutter = document.getElementById('contact-clutter').value || '[Not specified]';
             const message = document.getElementById('contact-message').value || '[None]';
 
-            const subject = encodeURIComponent('Quote Request“ RentReady NYC');
+            const subject = encodeURIComponent('Quote Request - RentReady NYC');
             const body = encodeURIComponent(
                 `Quote Request\n` +
                 `--------------\n` +
