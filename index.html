@@ -4,20 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24-Hour Furniture Clearance & Storage | NYC Property Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>RentReady NYC | 24-Hour Furniture Clearance & Storage</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #0f172a;
-            --text-muted: #64748b;
+            --bg-color: #fafafa;
+            --text-color: #0b1120;
+            --text-muted: #475569;
             --accent: #2563eb;
             --accent-hover: #1d4ed8;
+            --accent-light: #eff6ff;
             --gray-bg: #f8fafc;
             --gray-border: #e2e8f0;
-            --font-stack: 'Inter', -apple-system, sans-serif;
+            --font-heading: 'Outfit', -apple-system, sans-serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+            --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
         }
 
+        /* Base */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -25,30 +32,34 @@
         }
 
         body {
-            font-family: var(--font-stack);
+            font-family: var(--font-body);
             color: var(--text-color);
             background: var(--bg-color);
-            line-height: 1.5;
+            line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: color 0.3s ease;
         }
 
         ul {
             list-style: none;
         }
 
+        /* Layout */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
         .section {
-            padding: 4rem 0;
+            padding: 6rem 0;
+            position: relative;
         }
 
         .bg-gray {
@@ -59,80 +70,112 @@
             text-align: center;
         }
 
-        .badge {
-            display: inline-block;
-            background: var(--gray-bg);
-            color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            border: 1px solid var(--gray-border);
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #020617;
         }
 
         h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #020617 0%, #1e293b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
 
         h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             color: var(--text-muted);
+            font-size: 1.125rem;
+        }
+
+        .long-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        /* Components */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .btn {
-            display: inline-block;
-            background: var(--accent);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            padding: 1rem 2rem;
+            border-radius: 12px;
             font-weight: 600;
+            font-size: 1rem;
             border: none;
             cursor: pointer;
-            text-align: center;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
         }
 
         .btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.23);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--accent);
-            border: 1px solid var(--gray-border);
+            color: var(--text-color);
+            border: 2px solid var(--gray-border);
+            box-shadow: none;
         }
 
         .btn-outline:hover {
             background: var(--gray-bg);
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         /* Header */
         header {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-bottom: 1px solid var(--gray-border);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
             z-index: 100;
-            padding: 1rem 0;
+            padding: 1.25rem 0;
+            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -142,110 +185,154 @@
         }
 
         .logo {
-            font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
-            font-size: 0.9rem;
+            gap: 2rem;
+            font-size: 0.95rem;
             font-weight: 500;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--accent);
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
 
         /* Hero */
         .hero {
-            padding: 6rem 0 4rem;
+            padding: 8rem 0 6rem;
             text-align: center;
+            background: radial-gradient(circle at top, var(--accent-light) 0%, var(--bg-color) 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 600px) {
-            .hero-buttons {
-                flex-direction: column;
-            }
+            margin-top: 2.5rem;
         }
 
         /* Grid & Cards */
         .grid {
             display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
 
         .card {
-            padding: 2rem;
+            padding: 2.5rem;
             border: 1px solid var(--gray-border);
-            border-radius: 12px;
-            background: white;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #60a5fa);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .card:hover::before {
+            opacity: 1;
         }
 
         .icon {
-            width: 32px;
-            height: 32px;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        /* Custom Layouts */
-        .evidence-callout {
-            background: var(--accent);
-            color: white;
-            padding: 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-        }
-
-        .evidence-callout p {
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0;
-        }
-
-        .evidence-callout strong {
-            color: white;
-        }
-
-        .cost-panel {
-            background: #fff;
-            border: 1px solid #fee2e2;
-            border-left: 4px solid #ef4444;
-            padding: 1rem;
-            border-radius: 4px;
+            width: 48px;
+            height: 48px;
             margin-bottom: 1.5rem;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 12px;
+            border-radius: 12px;
         }
 
-        .cost-panel h4 {
-            color: #b91c1c;
-            margin-bottom: 0.25rem;
-        }
-
-        .cost-panel p {
-            margin: 0;
-            font-size: 0.9rem;
+        /* Specific Sections */
+        .cost-panel {
+            background: white;
+            border: none;
+            border-left: 4px solid #ef4444;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .step-list {
@@ -255,8 +342,12 @@
 
         .step-item {
             position: relative;
-            padding-left: 3rem;
-            margin-bottom: 2rem;
+            padding-left: 4rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .step-item h3 {
+            color: var(--accent);
         }
 
         .step-item::before {
@@ -264,91 +355,216 @@
             content: counter(steps);
             position: absolute;
             left: 0;
-            top: 0;
-            width: 28px;
-            height: 28px;
-            background: var(--gray-bg);
-            border: 1px solid var(--gray-border);
-            color: var(--text-color);
-            font-weight: bold;
+            top: -4px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 700;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.875rem;
+            font-size: 1.125rem;
+            font-family: var(--font-heading);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
         }
 
+        /* FAQ */
         .faq-item {
             border-bottom: 1px solid var(--gray-border);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
         }
 
         .faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .faq-item.faq-open .faq-question span {
+            transform: rotate(45deg);
         }
 
         .faq-answer {
-            display: none;
-            margin-bottom: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease;
+            opacity: 0;
         }
 
-        .faq-item.active .faq-answer {
-            display: block;
+        .faq-item.faq-open .faq-answer {
+            max-height: 200px;
+            margin-top: 1rem;
+            opacity: 1;
+            transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.4s ease 0.1s;
         }
 
         /* Form UI */
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-align: left;
         }
 
         .form-label {
             display: block;
             font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
         }
 
         .form-input {
             width: 100%;
-            padding: 0.75rem;
+            padding: 1rem;
             border: 1px solid var(--gray-border);
-            border-radius: 6px;
+            border-radius: 8px;
             font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: var(--gray-bg);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         /* Animation for storage units */
         @keyframes dropAndReset {
-            0% { transform: translateY(-40px); opacity: 0; }
-            10% { transform: translateY(0); opacity: 1; }
-            80% { transform: translateY(0); opacity: 1; }
-            90% { transform: translateY(0); opacity: 0; }
-            100% { transform: translateY(-40px); opacity: 0; }
+            0% {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+
+            10% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            80% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            90% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
         }
+
         .box-anim {
             opacity: 0;
             animation: dropAndReset 5s infinite;
             transform-origin: center;
         }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-        .delay-5 { animation-delay: 1.0s; }
-        .delay-6 { animation-delay: 1.2s; }
-        .delay-7 { animation-delay: 1.4s; }
-        .delay-8 { animation-delay: 1.6s; }
-        .delay-9 { animation-delay: 1.8s; }
-        .delay-10 { animation-delay: 2.0s; }
-        
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1.0s;
+        }
+
+        .delay-6 {
+            animation-delay: 1.2s;
+        }
+
+        .delay-7 {
+            animation-delay: 1.4s;
+        }
+
+        .delay-8 {
+            animation-delay: 1.6s;
+        }
+
+        .delay-9 {
+            animation-delay: 1.8s;
+        }
+
+        .delay-10 {
+            animation-delay: 2.0s;
+        }
+
         .storage-vis {
-            height: 100px;
-            margin: 0.5rem auto 1rem;
+            height: 160px;
+            margin: 0 auto 1rem;
             display: block;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -358,6 +574,11 @@
     <!-- Shared Isometric SVG Assets -->
     <svg width="0" height="0" style="display:none;">
         <defs>
+            <g id="iso-box">
+                <polygon points="0,-5 10,-10 0,-15 -10,-10" fill="#e2e8f0" />
+                <polygon points="0,-5 -10,-10 -10,0 0,5" fill="#94a3b8" />
+                <polygon points="0,-5 10,-10 10,0 0,5" fill="#cbd5e1" />
+            </g>
             <g id="iso-bed">
                 <polygon points="0,-10 20,-20 -10,-35 -30,-25" fill="#e0f2fe" />
                 <polygon points="0,-10 -30,-25 -30,-15 0,0" fill="#7dd3fc" />
@@ -380,8 +601,8 @@
                 <polygon points="0,-15 15,-22.5 5,-27.5 -10,-20" fill="#fef3c7" />
                 <polygon points="0,-15 -10,-20 -10,-5 0,0" fill="#d97706" />
                 <polygon points="0,-15 15,-22.5 15,-7.5 0,0" fill="#f59e0b" />
-                <line x1="0" y1="-10" x2="15" y2="-17.5" stroke="#b45309" stroke-width="0.5"/>
-                <line x1="0" y1="-5" x2="15" y2="-12.5" stroke="#b45309" stroke-width="0.5"/>
+                <line x1="0" y1="-10" x2="15" y2="-17.5" stroke="#b45309" stroke-width="0.5" />
+                <line x1="0" y1="-5" x2="15" y2="-12.5" stroke="#b45309" stroke-width="0.5" />
             </g>
             <g id="iso-desk">
                 <polygon points="8,-29 10,-30 10,-15 8,-14" fill="#334155" />
@@ -401,9 +622,9 @@
                 <polygon points="2,-16 18,-24 15,-25.5 -1,-17.5" fill="#334155" />
             </g>
             <g id="iso-room">
-                <polygon points="50,80 90,60 50,40 10,60" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
-                <polygon points="10,60 50,40 50,0 10,20" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
-                <polygon points="50,40 90,60 90,20 50,0" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+                <polygon points="50,80 90,60 50,40 10,60" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+                <polygon points="10,60 50,40 50,0 10,20" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
+                <polygon points="50,40 90,60 90,20 50,0" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1" />
             </g>
         </defs>
     </svg>
@@ -411,7 +632,9 @@
     <!-- Sticky Header -->
     <header>
         <div class="container nav-container">
-            <div class="logo">RentReady NYC</div>
+            <div class="logo"><img
+                    src="data:image/png;base64,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"
+                    alt="RentReady NYC" style="height: 40px; width: auto; display: block;"></div>
             <nav class="nav-links">
                 <a href="#problem">Problem</a>
                 <a href="#solution">Solution</a>
@@ -427,7 +650,7 @@
     <!-- Hero Section -->
     <section class="section hero">
         <div class="container">
-            <div class="badge">Designed for: NYC walk-ups, small to mid-size portfolios</div>
+            <div class="badge">âœ“ Licensed &amp; Insured &nbsp;Â·&nbsp; NYC Furniture Clearance Specialist</div>
             <h1>Clear the unit in 24 hours.<br>Start turnover immediately.</h1>
             <p class="long-text" style="font-size: 1.25rem; max-width: 600px; margin: 0 auto; margin-bottom: 2rem;">Stop
                 losing rental income waiting on property removal. We provide secure, compliant furniture clearance and
@@ -435,7 +658,7 @@
 
             <div class="hero-buttons">
                 <a href="#how-it-works" class="btn">See how it works</a>
-                <a href="#contact" class="btn btn-outline">Provide feedback</a>
+                <a href="#contact" class="btn btn-outline">Get a Free Quote</a>
             </div>
 
 
@@ -547,15 +770,18 @@
                     <h3>What you get:</h3>
                     <ul style="margin-top: 1rem;">
                         <li style="margin-bottom: 0.5rem; display: flex;"><span
-                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Instant unit access</li>
+                                style="color:var(--accent); margin-right: 0.5rem;">&#10003;</span> Instant unit access
+                        </li>
                         <li style="margin-bottom: 0.5rem; display: flex;"><span
-                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Photo inventory log</li>
+                                style="color:var(--accent); margin-right: 0.5rem;">&#10003;</span> Photo inventory log
+                        </li>
                         <li style="margin-bottom: 0.5rem; display: flex;"><span
-                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Condition report</li>
+                                style="color:var(--accent); margin-right: 0.5rem;">&#10003;</span> Condition report</li>
                         <li style="margin-bottom: 0.5rem; display: flex;"><span
-                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> Damage guarantee</li>
+                                style="color:var(--accent); margin-right: 0.5rem;">&#10003;</span> Damage guarantee</li>
                         <li style="margin-bottom: 0.5rem; display: flex;"><span
-                                style="color:var(--accent); margin-right: 0.5rem;">✓</span> 30-day offsite hold</li>
+                                style="color:var(--accent); margin-right: 0.5rem;">&#10003;</span> 30-day offsite hold
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -594,81 +820,203 @@
     <section id="pricing" class="section bg-gray">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 1rem;">Clear Pricing. No Retainers.</h2>
-            <p class="text-center" style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">We charge a flat rate based on the amount of clutter left in the unit. Final pricing may depend on stairs (walk-up floors).</p>
+            <p class="text-center"
+                style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">We charge a flat
+                rate based on the amount of clutter left in the unit. Final pricing may depend on stairs (walk-up
+                floors).</p>
 
             <div class="grid" style="gap: 2rem; align-items: stretch;">
                 <!-- Tier 1 -->
-                <div class="card" style="display: flex; flex-direction: column; text-align: center; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em;">Low Clutter</h3>
-                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$575</div>
-                    <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">~5 Days of recovered rent</p>
-                    
-                    <svg class="storage-vis" viewBox="0 -10 100 100" xmlns="http://www.w3.org/2000/svg">
+                <div class="card"
+                    style="display: flex; flex-direction: column; text-align: center; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                    <h3
+                        style="color: var(--text-muted); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em;">
+                        Low Clutter</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$575
+                    </div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">~5 Days of recovered rent
+                    </p>
+
+                    <svg class="storage-vis" viewBox="0 -50 100 140" xmlns="http://www.w3.org/2000/svg"
+                        overflow="hidden">
                         <!-- Storage unit boundary -->
-                        <use href="#iso-room"/>
+                        <use href="#iso-room" />
                         <!-- Low Clutter Items -->
-                        <g transform="translate(25, 67.5)"><g class="box-anim delay-1"><use href="#iso-tv"/></g></g>
-                        <g transform="translate(60, 70)"><g class="box-anim delay-2"><use href="#iso-box"/></g></g>
-                        <g transform="translate(50, 80)"><g class="box-anim delay-3"><use href="#iso-sofa"/></g></g>
+                        <g transform="translate(0,-6)">
+                            <g transform="translate(25, 67.5)">
+                                <g class="box-anim delay-1">
+                                    <use href="#iso-tv" />
+                                </g>
+                            </g>
+                            <g transform="translate(60, 70)">
+                                <g class="box-anim delay-2">
+                                    <use href="#iso-box" />
+                                </g>
+                            </g>
+                            <g transform="translate(50, 80)">
+                                <g class="box-anim delay-3">
+                                    <use href="#iso-sofa" />
+                                </g>
+                            </g>
+                        </g>
                     </svg>
 
-                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Fits in <strong>½</strong> of a 10×10 storage unit<br><span style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">1–3 "Hero" items (e.g., Mattress, Sofa)</span></p>
+                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Fits in <strong>&frac12;</strong>
+                        of a 10&times;10 storage unit<br><span
+                            style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">1&ndash;3
+                            &ldquo;Hero&rdquo; items (e.g., Mattress, Sofa)</span></p>
                     <a href="#contact" class="btn btn-outline" style="width: 100%;">Book Removal</a>
                 </div>
 
                 <!-- Tier 2 -->
-                <div class="card" style="display: flex; flex-direction: column; text-align: center; position: relative; border: 2px solid var(--accent); box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1); transform: translateY(-0.5rem);">
-                    <div class="badge" style="background: var(--accent); color: white; border: none; margin: 0 auto; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 10;">Most Frequent</div>
-                    <h3 style="color: var(--accent); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em; margin-top: 1rem;">Medium Clutter</h3>
-                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$875</div>
-                    <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">~7 Days of recovered rent</p>
+                <div style="position: relative;">
+                    <span class="badge"
+                        style="background: var(--accent); color: white; border: none; margin: 0; box-shadow: 0 4px 10px rgba(37,99,235,0.2); position: absolute; top: -18px; left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap;">Most
+                        Frequent</span>
+                    <div class="card"
+                        style="display: flex; flex-direction: column; text-align: center; height: 100%; border: 2px solid var(--accent); box-shadow: 0 10px 15px -3px rgba(37,99,235,0.1);">
+                        <h3
+                            style="color: var(--accent); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em; margin-top: 0.5rem;">
+                            Medium Clutter</h3>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$875
+                        </div>
+                        <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">~7 Days of recovered
+                            rent</p>
 
-                    <svg class="storage-vis" viewBox="0 -10 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Storage unit boundary -->
-                        <use href="#iso-room"/>
-                        <!-- Medium Clutter Items (Perfect Fit) -->
-                        <g transform="translate(55, 52.5)"><g class="box-anim delay-1"><use href="#iso-fridge"/></g></g>
-                        <g transform="translate(35, 52.5)"><g class="box-anim delay-2"><use href="#iso-tv"/></g></g>
-                        <g transform="translate(45, 62.5)"><g class="box-anim delay-3"><use href="#iso-dresser"/></g></g>
-                        <g transform="translate(20, 65)"><g class="box-anim delay-4"><use href="#iso-desk"/></g></g>
-                        <g transform="translate(75, 67.5)"><g class="box-anim delay-5"><use href="#iso-sofa"/></g></g>
-                        <g transform="translate(50, 80)"><g class="box-anim delay-6"><use href="#iso-bed"/></g></g>
-                    </svg>
+                        <svg class="storage-vis" viewBox="0 -50 100 140" xmlns="http://www.w3.org/2000/svg"
+                            overflow="hidden">
+                            <!-- Storage unit boundary -->
+                            <use href="#iso-room" />
+                            <!-- Medium Clutter Items (Perfect Fit) -->
+                            <g transform="translate(0,-2)">
+                                <g transform="translate(55, 52.5)">
+                                    <g class="box-anim delay-1">
+                                        <use href="#iso-fridge" />
+                                    </g>
+                                </g>
+                                <g transform="translate(35, 52.5)">
+                                    <g class="box-anim delay-2">
+                                        <use href="#iso-tv" />
+                                    </g>
+                                </g>
+                                <g transform="translate(45, 62.5)">
+                                    <g class="box-anim delay-3">
+                                        <use href="#iso-dresser" />
+                                    </g>
+                                </g>
+                                <g transform="translate(20, 65)">
+                                    <g class="box-anim delay-4">
+                                        <use href="#iso-desk" />
+                                    </g>
+                                </g>
+                                <g transform="translate(75, 67.5)">
+                                    <g class="box-anim delay-5">
+                                        <use href="#iso-sofa" />
+                                    </g>
+                                </g>
+                                <g transform="translate(50, 80)">
+                                    <g class="box-anim delay-6">
+                                        <use href="#iso-bed" />
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
 
-                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Fits in <strong>one</strong> 10×10 storage unit<br><span style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">Partial Apartment (Furniture + ~10 bags/boxes)</span></p>
-                    <a href="#contact" class="btn" style="width: 100%;">Book Removal</a>
+                        <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Fits in <strong>one</strong>
+                            10&times;10 storage unit<br><span
+                                style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">Partial
+                                Apartment (Furniture + ~10 bags/boxes)</span></p>
+                        <a href="#contact" class="btn" style="width: 100%;">Book Removal</a>
+                    </div>
                 </div>
 
                 <!-- Tier 3 -->
-                <div class="card" style="display: flex; flex-direction: column; text-align: center; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-                    <h3 style="color: var(--text-muted); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em;">High Clutter</h3>
-                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$1250</div>
-                    <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">~10 Days of recovered rent</p>
+                <div class="card"
+                    style="display: flex; flex-direction: column; text-align: center; border: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                    <h3
+                        style="color: var(--text-muted); text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em;">
+                        High Clutter</h3>
+                    <div style="font-size: 2.5rem; font-weight: 700; color: var(--text-color); margin: 1rem 0;">$1250
+                    </div>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem; color: var(--accent);">~10 Days of recovered rent
+                    </p>
 
-                    <svg class="storage-vis" viewBox="0 -10 180 100" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="storage-vis" viewBox="0 -50 180 140" xmlns="http://www.w3.org/2000/svg"
+                        overflow="hidden">
                         <!-- Storage unit boundary 1 -->
-                        <use href="#iso-room"/>
+                        <use href="#iso-room" />
                         <!-- Storage unit boundary 2 -->
-                        <use href="#iso-room" x="80"/>
-                        
-                        <!-- Unit 1 filling entirely -->
-                        <g transform="translate(55, 52.5)"><g class="box-anim delay-1"><use href="#iso-fridge"/></g></g>
-                        <g transform="translate(35, 52.5)"><g class="box-anim delay-2"><use href="#iso-tv"/></g></g>
-                        <g transform="translate(45, 62.5)"><g class="box-anim delay-3"><use href="#iso-dresser"/></g></g>
-                        <g transform="translate(20, 65)"><g class="box-anim delay-4"><use href="#iso-desk"/></g></g>
-                        <g transform="translate(75, 67.5)"><g class="box-anim delay-5"><use href="#iso-sofa"/></g></g>
-                        <g transform="translate(50, 80)"><g class="box-anim delay-6"><use href="#iso-bed"/></g></g>
-
-                        <!-- Unit 2 filling entirely -->
-                        <g transform="translate(135, 52.5)"><g class="box-anim delay-7"><use href="#iso-fridge"/></g></g>
-                        <g transform="translate(115, 52.5)"><g class="box-anim delay-8"><use href="#iso-tv"/></g></g>
-                        <g transform="translate(125, 62.5)"><g class="box-anim delay-9"><use href="#iso-dresser"/></g></g>
-                        <g transform="translate(100, 65)"><g class="box-anim delay-10"><use href="#iso-desk"/></g></g>
-                        <g transform="translate(155, 67.5)"><g class="box-anim delay-11"><use href="#iso-sofa"/></g></g>
-                        <g transform="translate(130, 80)"><g class="box-anim delay-12"><use href="#iso-bed"/></g></g>
+                        <use href="#iso-room" x="80" />
+                        <g transform="translate(0,-2)">
+                            <!-- Unit 1 filling entirely -->
+                            <g transform="translate(55, 52.5)">
+                                <g class="box-anim delay-1">
+                                    <use href="#iso-fridge" />
+                                </g>
+                            </g>
+                            <g transform="translate(35, 52.5)">
+                                <g class="box-anim delay-2">
+                                    <use href="#iso-tv" />
+                                </g>
+                            </g>
+                            <g transform="translate(45, 62.5)">
+                                <g class="box-anim delay-3">
+                                    <use href="#iso-dresser" />
+                                </g>
+                            </g>
+                            <g transform="translate(20, 65)">
+                                <g class="box-anim delay-4">
+                                    <use href="#iso-desk" />
+                                </g>
+                            </g>
+                            <g transform="translate(75, 67.5)">
+                                <g class="box-anim delay-5">
+                                    <use href="#iso-sofa" />
+                                </g>
+                            </g>
+                            <g transform="translate(50, 80)">
+                                <g class="box-anim delay-6">
+                                    <use href="#iso-bed" />
+                                </g>
+                            </g>
+                            <!-- Unit 2 filling entirely -->
+                            <g transform="translate(135, 52.5)">
+                                <g class="box-anim delay-7">
+                                    <use href="#iso-fridge" />
+                                </g>
+                            </g>
+                            <g transform="translate(115, 52.5)">
+                                <g class="box-anim delay-8">
+                                    <use href="#iso-tv" />
+                                </g>
+                            </g>
+                            <g transform="translate(125, 62.5)">
+                                <g class="box-anim delay-9">
+                                    <use href="#iso-dresser" />
+                                </g>
+                            </g>
+                            <g transform="translate(100, 65)">
+                                <g class="box-anim delay-10">
+                                    <use href="#iso-desk" />
+                                </g>
+                            </g>
+                            <g transform="translate(155, 67.5)">
+                                <g class="box-anim delay-11">
+                                    <use href="#iso-sofa" />
+                                </g>
+                            </g>
+                            <g transform="translate(130, 80)">
+                                <g class="box-anim delay-12">
+                                    <use href="#iso-bed" />
+                                </g>
+                            </g>
+                        </g>
                     </svg>
 
-                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Fits in <strong>two</strong> 10×10 storage units<br><span style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">Full Unit Clear-out (Heavily furnished)</span></p>
+                    <p style="font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Fits in <strong>two</strong>
+                        10&times;10 storage units<br><span
+                            style="color: var(--text-muted); font-size: 0.85rem; display: block; margin-top: 0.5rem;">Full
+                            Unit Clear-out (Heavily furnished)</span></p>
                     <a href="#contact" class="btn btn-outline" style="width: 100%;">Book Removal</a>
                 </div>
             </div>
@@ -734,41 +1082,74 @@
 
     <!-- Contact -->
     <section id="contact" class="section bg-gray">
-        <div class="container"
-            style="max-width: 600px; background: white; padding: 2rem; border-radius: 8px; border: 1px solid var(--gray-border);">
-            <h2 class="text-center">Help Us Shape This Service</h2>
-            <p class="text-center mb-4">We're actively validating this model with NYC property managers. Share your
-                context to help us refine the service.</p>
+        <div class="container" style="max-width: 620px;">
+            <div
+                style="background: white; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--gray-border); box-shadow: var(--card-shadow);">
+                <h2 class="text-center" style="margin-bottom: 0.5rem;">Get a Free Quote</h2>
+                <p class="text-center" style="margin-bottom: 2rem;">Tell us about your unit and we'll get back to you
+                    within a few hours.</p>
 
-            <div class="form-group">
-                <label class="form-label">Name / Company</label>
-                <input type="text" id="contact-name" class="form-input" placeholder="e.g. John Doe - XYZ Management">
-            </div>
-            <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                <div>
-                    <label class="form-label">Building Type</label>
-                    <input type="text" id="contact-bldg" class="form-input" placeholder="e.g. Walk-ups, Elevators">
+                <div class="form-group">
+                    <label class="form-label" for="contact-name">Your Name / Company</label>
+                    <input type="text" id="contact-name" class="form-input"
+                        placeholder="e.g. John Doe â€“ XYZ Management">
                 </div>
-                <div>
-                    <label class="form-label">Portfolio Size (# Units)</label>
-                    <input type="text" id="contact-units" class="form-input" placeholder="e.g. 50-100">
-                </div>
-            </div>
-            <div class="form-group mb-4">
-                <label class="form-label">Typical turnaround expectation (Days)</label>
-                <input type="text" id="contact-turnaround" class="form-input" placeholder="e.g. 3-5 days">
-            </div>
 
-            <div style="display: flex; gap: 1rem; flex-direction: column;">
-                <button class="btn" onclick="copyContact()">Copy message to clipboard</button>
-                <div class="text-center">
-                    <a href="mailto:test@example.com?subject=RentReady Feedback" class="btn-outline"
-                        style="padding: 0.5rem 1rem; display: inline-block; border-radius: 6px; font-size: 0.85rem;">Or
-                        open email client (mailto)</a>
+                <div class="form-group">
+                    <label class="form-label" for="contact-email">Your Email</label>
+                    <input type="email" id="contact-email" class="form-input" placeholder="you@example.com">
+                </div>
+
+                <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <label class="form-label" for="contact-bldg">Building Type</label>
+                        <input type="text" id="contact-bldg" class="form-input" placeholder="e.g. Walk-up, Elevator">
+                    </div>
+                    <div>
+                        <label class="form-label" for="contact-floors">Floor # (if walk-up)</label>
+                        <input type="text" id="contact-floors" class="form-input" placeholder="e.g. 3rd floor">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="contact-clutter">Clutter Level</label>
+                    <select id="contact-clutter" class="form-input">
+                        <option value="" disabled selected>Select estimated clutter level</option>
+                        <option value="Low â€“ 1â€“3 hero items ($575)">Low â€“ 1â€“3 hero items ($575)</option>
+                        <option value="Medium â€“ Partial apartment ($875)">Medium â€“ Partial apartment ($875)</option>
+                        <option value="High â€“ Full unit clear-out ($1,250)">High â€“ Full unit clear-out ($1,250)
+                        </option>
+                        <option value="Not sure â€“ need assessment">Not sure â€“ need assessment</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="contact-message">Anything else we should know?</label>
+                    <textarea id="contact-message" class="form-input" rows="3"
+                        placeholder="e.g. preferred pickup date, access instructions, special items..."></textarea>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                    <button class="btn" id="send-quote-btn" onclick="sendQuote()">ðŸ“¬ Send Quote Request</button>
+                    <p style="text-align: center; font-size: 0.85rem; color: var(--text-muted); margin: 0;">Or email us
+                        directly at <a href="mailto:kp3805@nyu.edu" style="color: var(--accent);">kp3805@nyu.edu</a></p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer style="background: #0b1120; color: #94a3b8; padding: 2.5rem 0; text-align: center;">
+        <div class="container">
+            <div style="font-family: var(--font-heading); font-size: 1.1rem; color: white; margin-bottom: 0.5rem;">
+                RentReady NYC</div>
+            <p style="font-size: 0.875rem; margin-bottom: 0.5rem; color: #64748b;">24-Hour Furniture Clearance &amp;
+                Compliant Off-Site Storage for NYC Property Managers</p>
+            <a href="mailto:kp3805@nyu.edu" style="color: var(--accent); font-size: 0.875rem;">kp3805@nyu.edu</a>
+            <div style="margin-top: 1.5rem; font-size: 0.8rem; color: #475569;">&copy; 2025 RentReady NYC. All rights
+                reserved.</div>
+        </div>
+    </footer>
 
 
 
@@ -777,25 +1158,63 @@
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
                 const parent = item.parentElement;
-                parent.classList.toggle('active');
-                const span = item.querySelector('span');
-                span.textContent = parent.classList.contains('active') ? '-' : '+';
+                const wasOpen = parent.classList.contains('faq-open');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('faq-open'));
+
+                if (!wasOpen) {
+                    parent.classList.add('faq-open');
+                }
             });
         });
 
-        // Contact Form Copy
-        function copyContact() {
+        // Quote Request via mailto
+        function sendQuote() {
             const name = document.getElementById('contact-name').value || '[Name]';
-            const bldg = document.getElementById('contact-bldg').value || '[Type]';
-            const units = document.getElementById('contact-units').value || '[Units]';
-            const turnaround = document.getElementById('contact-turnaround').value || '[Time]';
+            const email = document.getElementById('contact-email').value || '[Email]';
+            const bldg = document.getElementById('contact-bldg').value || '[Building Type]';
+            const floors = document.getElementById('contact-floors').value || '[Floor]';
+            const clutter = document.getElementById('contact-clutter').value || '[Not specified]';
+            const message = document.getElementById('contact-message').value || '[None]';
 
-            const text = `Feedback for RentReady:\nName/Company: ${name}\nBuilding Type: ${bldg}\nPortfolio Size: ${units} units\nTypical Turnaround: ${turnaround}`;
+            const subject = encodeURIComponent('Quote Request â€“ RentReady NYC');
+            const body = encodeURIComponent(
+                `Quote Request\n` +
+                `--------------\n` +
+                `Name / Company: ${name}\n` +
+                `Reply Email: ${email}\n` +
+                `Building Type: ${bldg}\n` +
+                `Floor: ${floors}\n` +
+                `Clutter Level: ${clutter}\n` +
+                `Additional Notes: ${message}`
+            );
 
-            navigator.clipboard.writeText(text).then(() => {
-                alert("Copied to clipboard!");
-            });
+            window.location.href = `mailto:kp3805@nyu.edu?subject=${subject}&body=${body}`;
         }
+
+        // Scroll Reveal Animations
+        document.addEventListener("DOMContentLoaded", () => {
+            // Add reveal class to specific elements
+            const elementsToReveal = document.querySelectorAll('.section h2, .section p.long-text, .card, .step-item, .cost-panel, .faq-item, .form-group');
+            elementsToReveal.forEach((el, index) => {
+                el.classList.add('reveal');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Option to unobserve after reveal: observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 
